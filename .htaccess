@@ -1,0 +1,13 @@
+<IfModule dir_module>
+    DirectoryIndex index.php index.html
+</IfModule>
+AddDefaultCharset utf8mb4
+AddCharset UTF-8 .html
+<FilesMatch "\.(html)$">
+   Header set Cache-Control: "no-cache, no-store"
+   Header unset ETag
+</FilesMatch>
+Header set X-Content-Type-Options nosniff
+# Настройка простого ЧПУ
+RewriteEngine On
+RewriteRule ^category/([0-9]+)? index.php?category=$1 [L]
